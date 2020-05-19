@@ -14,8 +14,12 @@ import java.util.List;
 @RequestMapping(path = "/customers")
 public class CustomerController {
 
-    @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
 
     @GetMapping(path = "/list")
     public List<Customer> getAllCustomer() {
